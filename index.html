@@ -35,8 +35,11 @@
               response => response.json()
           ).then((html) => {
             // you can put any JS code here
-            alert('success')
-            action=""
+            alert('Nosūtīts, sūtam uz Google Sheets!')
+            console.log("5 second wait");
+             console.log("JavaScript");
+            setTimeout(() => {console.log("World"); }, 10000);
+            window.location.href = 'https://docs.google.com/spreadsheets/d/1wPQH4yHb5kKKrynJdbN_UkHcgZylaHZpwFndCJ20g_Y/edit?usp=sharing'
           });
         });
       </script>
