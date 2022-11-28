@@ -5,23 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bibliotēkas grāmatu 14 limits</title>
-    <link rel="stylesheet" href="/Biblioteka/css.css">
+    <link rel="stylesheet" href="/css.css">
     <link rel="stylesheet" href="/Biblioteka/js.js">
 </head>
 <body>
     
     <div class="login">
         <h1>14 Dienu Laika Limits</h1>
-        <form method="post">
-            <input type="text" name="u" placeholder="Vārds" required="Vārds" />
-            <input type="text" name="p" placeholder="Uzvārds" required="Uzvārds" />
+        <form action="https://sheetdb.io/api/v1/y0jn98ev0ia0w" method="POST" id="sheetdb-form">
+            <input type="text" placeholder="Vārds" required="Vārds" name="data[Vārds]" />
+            <input type="text" placeholder="Uzvārds" required="Uzvārds" name="data[Uzvārds]" />
+            <input type="text" placeholder="Klase" required="Klase" name="data[Klase]">
             <h2><font color="white">Grāmatas izvēle <br> <a href="https://skolas.rcb.lv/Alise/lv/13/home.aspx">Grāmatas</a> </font></h2>
-            <input type="text" name="g" placeholder="Grāmata" required="Grāmata" />
+            <input type="text" placeholder="Grāmata" required="Grāmata" name="data[Grāmata]"/>
             <h2><font color="white">Kad atnāksi pēc grāmatas</font></h2>
-            <input type="Date" name="d" placeholder="Datums" required="Datums" />
+            <input type="Date" placeholder="Datums" required="Datums" name="data[Datums]"/>
             <button type="submit" class="btn btn-primary btn-block btn-large">Nosūtīt savu 14 dienu laika limitu.</button>
         </form>
     </div>
+
+    <script>
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("sheetdb-form")),
+          }).then(
+              response => response.json()
+          ).then((html) => {
+            // you can put any JS code here
+            alert('success')
+            action=""
+          });
+        });
+      </script>
 
 </body>
 </html>
